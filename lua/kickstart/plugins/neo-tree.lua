@@ -11,15 +11,16 @@ return {
   },
   lazy = false,
   keys = {
-    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', ':Neotree filesystem toggle right<CR>', desc = 'NeoTree reveal', silent = true },
   },
-  opts = {
-    filesystem = {
+  config = function()
+    require('neo-tree').setup {
       window = {
+        position = 'right',
         mappings = {
-          ['\\'] = 'close_window',
+          ['<space>'] = 'none', -- disable space toggling
         },
       },
-    },
-  },
+    }
+  end,
 }
